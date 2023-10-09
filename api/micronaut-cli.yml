@@ -1,0 +1,6 @@
+applicationType: function
+defaultPackage: com.kazu.studyManager
+testFramework: junit
+sourceLanguage: kotlin
+buildTool: gradle_kotlin
+features: [app-name, aws-cdk, aws-lambda, aws-lambda-custom-runtime, aws-lambda-function-url, aws-lambda-handler-function, aws-v2-sdk, dynamodb, github-workflow-ci, graalvm, gradle, graphql, http-client, http-client-test, jackson-databind, junit, kotlin, kotlin-extension-functions, ksp, localstack, log4j2, micronaut-build, mockito, properties, readme, shade, testcontainers, validation, x86]
