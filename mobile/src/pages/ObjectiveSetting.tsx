@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { Button, TextInput } from 'react-native-paper';
 import FormTextInputController from '../components/form/FormTextInputController';
 import FormSubmitButton from '../components/form/FormSubmitButton';
+import FormMenuController from "../components/form/FormMenuController";
 
 const units = [
   '時間',
@@ -31,7 +32,7 @@ export interface ObjectiveFormProps {
 
 const ObjectiveSetting = () => {
 
-  const { handleSubmit, control } = useForm<ObjectiveFormProps>();
+  const { handleSubmit, control } = useForm();
 
   const onSubmit = (data: ObjectiveFormProps) => {
     console.log(data);
@@ -54,6 +55,15 @@ const ObjectiveSetting = () => {
         rules={{
           required: true,
         }}
+      />
+
+      <FormMenuController
+        control={control}
+        name='unit'
+        rules={{
+          required: true,
+        }}
+        menuItems={Array.from(units)}
       />
       <FormSubmitButton
         text='目標を設定する'

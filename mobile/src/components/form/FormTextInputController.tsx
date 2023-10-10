@@ -1,19 +1,19 @@
 import { Control, Controller, Path, RegisterOptions } from 'react-hook-form';
+import { TextInputProps } from 'react-native';
 import { TextInput } from 'react-native-paper';
 
-export interface FormTextInputControllerProps<T> {
-  control: Control<T>;
-  name: Path<T>;
-  rules: Omit<RegisterOptions<T, Path<T>>, 'valueAsNumber' | 'valueAsDate' | 'setValueAs' | 'disabled'>;
-  placeholder?: string;
-}
+export type FormTextInputControllerProps = {
+  control: Control;
+  name: string;
+  rules: any;
+} & TextInputProps
 
-const FormTextInputController = <T,>({
+const FormTextInputController = ({
   control,
   name,
   rules,
-  placeholder,
-}: FormTextInputControllerProps<T>) => (
+  ...textInputProps
+}: FormTextInputControllerProps) => (
   <Controller
     control={control}
     rules={rules}
@@ -21,7 +21,7 @@ const FormTextInputController = <T,>({
       <TextInput
         onBlur={onBlur}
         onChangeText={onChange}
-        placeholder={placeholder}
+        placeholder={textInputProps.placeholder}
       />
     )}
     name={name}
