@@ -18,6 +18,7 @@ dependencies {
     ksp("io.micronaut.validation:micronaut-validation-processor")
     implementation("com.amazonaws:aws-lambda-java-events:3.11.3")
     implementation("io.micronaut:micronaut-http-client")
+    implementation("software.amazon.awssdk:dynamodb")
     implementation("io.micronaut:micronaut-jackson-databind")
     implementation("io.micronaut.aws:micronaut-aws-apigateway")
     implementation("io.micronaut.aws:micronaut-aws-sdk-v2")

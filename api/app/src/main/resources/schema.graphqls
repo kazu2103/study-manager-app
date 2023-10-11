@@ -1,0 +1,116 @@
+type Query {
+    findUserById(id: ID!): User!
+    findObjectiveById(id: ID!): Objective!
+    findMaterialById(id: ID!): Material!
+}
+
+type Mutation {
+    createUser(
+        mail: String
+        name: String
+        holiday: [DoW]
+    ): User!
+    updateUser(
+        id: ID!
+        name: String
+        email: String
+        holiday: [DoW]
+    ): UpdateUserPayload!
+}
+
+scalar Date
+
+enum Unit {
+    BOOK
+    PAGE
+    HOUR
+    MINUTE
+    CHAPTER
+    SECTION
+    QUESTION
+    PIECE
+}
+
+enum DoW {
+    SUNDAY
+    MONDAY
+    TUESDAY
+    WEDNESDAY
+    THURSDAY
+    FRIDAY
+    SATURDAY
+}
+
+# ユーザー
+type User {
+    id: ID!
+    loginId: String!
+    name: String!
+    email: String
+    holiday: [DoW]
+}
+
+type UpdateUserPayload {
+    payload: User!
+}
+
+# 目標
+type Objective {
+    id: ID!
+    name: String!
+    description: String
+    startDate: Date
+    dueDate: Date
+}
+
+type UpdateObjectivePayload {
+    payload: Objective!
+}
+
+# 教材
+type Material {
+    id: ID!
+    unit: Unit!
+    targetVolume: Int
+    startDate: Date
+    dueDate: Date
+    objective: Objective
+}
+
+type UpdateMaterialPayload {
+    payload: Material!
+}
+
+# 学習単位
+interface Study {
+    id: ID!
+    startDate: Date
+    dueDate: Date
+    material: Material
+}
+
+# 学習予定
+type Event implements Study {
+    id: ID!
+    startDate: Date
+    dueDate: Date
+    volume: Int
+    material: Material
+}
+
+type UpdateEventPayload {
+    payload: Event!
+}
+
+# 学習実績
+type Result implements Study {
+    id: ID!
+    startDate: Date
+    dueDate: Date
+    volume: Int
+    material: Material
+}
+
+type UpdateResultPayload {
+    payload: Result!
+}
