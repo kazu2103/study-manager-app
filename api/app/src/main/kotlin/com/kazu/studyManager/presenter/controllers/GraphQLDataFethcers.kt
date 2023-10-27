@@ -1,4 +1,4 @@
-package com.kazu.studyManager.application.controller
+package com.kazu.studyManager.presenter.controllers
 
 import graphql.schema.DataFetcher
 import graphql.schema.DataFetchingEnvironment
