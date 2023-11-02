@@ -1,5 +1,3 @@
 
-rootProject.name="study-manager-api"
+rootProject.name="api"
 
-include("app")
-include("infra")
