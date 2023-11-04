@@ -1,5 +1,6 @@
 package com.kazu.study.domain.entities
 
+import io.micronaut.data.annotation.GeneratedValue
 import io.micronaut.data.annotation.Id
 import io.micronaut.data.annotation.MappedEntity
 import java.time.LocalDateTime
@@ -8,6 +9,7 @@ import java.util.*
 @MappedEntity
 class User(
     @Id
+    @GeneratedValue
     val id: UUID,
     val name: String,
     val email: String,

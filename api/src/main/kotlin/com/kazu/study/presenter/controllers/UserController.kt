@@ -1,14 +1,17 @@
 package com.kazu.study.presenter.controllers
 
+import com.kazu.study.application.usecases.user.FindUserUseCase
 import com.kazu.study.application.usecases.user.RegisterUserUseCase
 import com.kazu.study.domain.entities.User
 import io.micronaut.context.annotation.Parameter
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.Post
+import java.util.*
 
 @Controller("/")
 class UserController(
+    private val findUserUseCase: FindUserUseCase,
     private val registerUserUseCase: RegisterUserUseCase,
 ) {
 
@@ -16,7 +19,9 @@ class UserController(
     fun findById(
         @Parameter id: String
     ): User {
-        TODO()
+        val tmp = UUID.randomUUID()
+        return findUserUseCase.execute(tmp)
+//        return findUserUseCase.execute(UUID.fromString(id))
     }
 
     @Post("/user")
