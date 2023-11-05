@@ -11,7 +11,7 @@ plugins {
 version = "0.1"
 group = "com.kazu.study"
 
-val kotlinVersion=project.properties.get("kotlinVersion")
+val kotlinVersion = project.properties.get("kotlinVersion")
 repositories {
     mavenCentral()
 }
@@ -25,6 +25,7 @@ dependencies {
     implementation("io.micronaut.aws:micronaut-aws-lambda-events-serde")
     implementation("io.micronaut.crac:micronaut-crac")
     implementation("io.micronaut.data:micronaut-data-mongodb")
+    implementation("io.micronaut.mongodb:micronaut-mongo-sync")
     implementation("io.micronaut.kotlin:micronaut-kotlin-runtime")
     implementation("io.micronaut.micrometer:micronaut-micrometer-core")
     implementation("io.micronaut.micrometer:micronaut-micrometer-registry-cloudwatch")
@@ -69,8 +70,8 @@ micronaut {
         annotations("com.kazu.study.*")
     }
     aot {
-    // Please review carefully the optimizations enabled below
-    // Check https://micronaut-projects.github.io/micronaut-aot/latest/guide/ for more details
+        // Please review carefully the optimizations enabled below
+        // Check https://micronaut-projects.github.io/micronaut-aot/latest/guide/ for more details
         optimizeServiceLoading.set(false)
         convertYamlToJava.set(false)
         precomputeOperations.set(true)

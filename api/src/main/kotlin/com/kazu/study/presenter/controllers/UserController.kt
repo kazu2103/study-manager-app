@@ -2,7 +2,8 @@ package com.kazu.study.presenter.controllers
 
 import com.kazu.study.application.usecases.user.FindUserUseCase
 import com.kazu.study.application.usecases.user.RegisterUserUseCase
-import com.kazu.study.domain.entities.User
+import com.kazu.study.domain.entities.user.User
+import com.kazu.study.domain.value.shared.Email
 import io.micronaut.context.annotation.Parameter
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
@@ -19,9 +20,7 @@ class UserController(
     fun findById(
         @Parameter id: String
     ): User {
-        val tmp = UUID.randomUUID()
-        return findUserUseCase.execute(tmp)
-//        return findUserUseCase.execute(UUID.fromString(id))
+        return findUserUseCase.execute(UUID.fromString(id))
     }
 
     @Post("/user")
@@ -31,7 +30,7 @@ class UserController(
     ): User {
         val user = User.new(
             name = name,
-            email = email
+            email = Email(email)
         )
         registerUserUseCase.execute(user)
 

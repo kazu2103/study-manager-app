@@ -1,6 +1,6 @@
 package com.kazu.study.application.usecases.user
 
-import com.kazu.study.domain.entities.User
+import com.kazu.study.domain.entities.user.User
 import com.kazu.study.domain.repositories.IUserRepository
 import jakarta.inject.Singleton
 
