@@ -13,4 +13,4 @@ out/
 .settings
 .classpath
 .factorypath
-.docker/mongodb/db/*
+.docker/mongodb/db/**
